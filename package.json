@@ -43,8 +43,8 @@
     "typescript": "^5.8.0"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "prepare": "tsc -p tsconfig.build.json",
+    "build": "tsc -p tsconfig.build.json && node scripts/build-client.mjs",
+    "prepare": "tsc -p tsconfig.build.json && node scripts/build-client.mjs",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf lib"
   },
