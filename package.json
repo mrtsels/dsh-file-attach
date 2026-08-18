@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/mrtsels/dsh-file-attach#readme",
   "keywords": ["dsh", "cordis", "plugin", "attachment"],
-  "license": "MIT",
+  "license": "LGPL-2.1",
   "peerDependencies": {
     "@deepseek-ai/cordis": "^4.0.0"
   },
