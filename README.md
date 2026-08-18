@@ -28,6 +28,23 @@
 
 ![Suggested attachments](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/suggested-chips.png)
 
+### 安装
+
+推荐通过 DSH CLI 安装（需要 pnpm）：
+
+```bash
+dsh plugin --profile web add github:mrtsels/dsh-file-attach
+```
+
+首次安装时 pnpm 需要你允许运行构建脚本，在 profile 目录的 `pnpm-workspace.yaml` 中添加：
+
+```yaml
+allowBuilds:
+  dsh-file-attach: true
+```
+
+然后重新运行 `add` 命令即可。
+
 ### 工作原理
 
 插件采用 **双半架构**（Host + Client），通过 DSH 官方扩展点 `agent/pre-step` 实现 prompt 注入：
@@ -44,16 +61,6 @@
 
 - **Host 侧**（`src/host/`）：运行在 Node.js 进程中，负责 prompt 注入、状态管理和文件内容读取
 - **Client 侧**（`src/client/`）：运行在浏览器 webview 中，负责 UI 渲染、路径检测和交互
-
-### 安装
-
-```bash
-# 作为 npm 包安装
-npm install dsh-file-attach
-
-# 或通过 pnpm
-pnpm add dsh-file-attach
-```
 
 ### 使用
 
@@ -147,6 +154,23 @@ Attached files are automatically injected into the prompt on the next model call
 
 ![Suggested attachments](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/suggested-chips.png)
 
+### Installation
+
+Install via the DSH CLI (requires pnpm):
+
+```bash
+dsh plugin --profile web add github:mrtsels/dsh-file-attach
+```
+
+On first install, pnpm requires you to allowlist the build script. Add this to the profile's `pnpm-workspace.yaml`:
+
+```yaml
+allowBuilds:
+  dsh-file-attach: true
+```
+
+Then re-run the `add` command.
+
 ### How It Works
 
 The plugin uses a **dual-half architecture** (Host + Client) and hooks into DSH's official `agent/pre-step` waterfall extension point:
@@ -163,14 +187,6 @@ The plugin uses a **dual-half architecture** (Host + Client) and hooks into DSH'
 
 - **Host side** (`src/host/`) — runs in the Node.js process; handles prompt injection, state management, and file content reading
 - **Client side** (`src/client/`) — runs in the browser webview; handles UI rendering, path detection, and user interaction
-
-### Installation
-
-```bash
-npm install dsh-file-attach
-# or
-pnpm add dsh-file-attach
-```
 
 ### Usage
 
@@ -274,16 +290,13 @@ dsh-file-attach/
 │   │   └── types.ts    # Shared type definitions
 │   └── client/         # Client half (browser)
 │       └── index.ts    # UI rendering + path detection
-├── lib/                # Compiled output (ESM)
+├── lib/                # Compiled output (git-ignored, built by prepare)
 ├── assets/             # UI screenshots
 ├── cordis.patch.yml    # Static plugin registration
 ├── package.json
-└── tsconfig.json
+├── tsconfig.json       # Type check config (noEmit)
+└── tsconfig.build.json # Build config (emit to lib/)
 ```
-
-### Integration
-
-This plugin is designed for integration with the DSH ecosystem via `build-web-shell.mjs`. The Host and Client halves are compiled separately and assembled into the DSH shell bundle.
 
 ### License
 
