@@ -23,14 +23,20 @@
   "files": [
     "lib/host/index.js",
     "lib/host/index.d.ts",
+    "lib/host/types.d.ts",
     "lib/client/index.js",
     "lib/client/index.d.ts",
     "cordis.patch.yml"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrtsels/dsh-file-attach.git"
+  },
+  "homepage": "https://github.com/mrtsels/dsh-file-attach#readme",
   "keywords": ["dsh", "cordis", "plugin", "attachment"],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:^"
+    "@deepseek-ai/cordis": "^4.0.0"
   },
   "devDependencies": {
     "@deepseek-ai/cordis": "workspace:^",
@@ -38,6 +44,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "prepare": "tsc",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf lib"
   },

@@ -1,15 +1,12 @@
 node_modules/
 dist/
+lib/
 *.tsbuildinfo
 .DS_Store
 
 DEBUG-REPORT.md
 client.js
 host.js
-
-# Build artifacts: source maps not needed for consumers
-lib/**/*.js.map
-lib/**/*.d.ts.map
 
 # Build-only script (excluded from npm via "files", no need in git)
 scripts/build-client.mjs
