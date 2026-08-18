@@ -30,7 +30,15 @@
 
 ### 安装
 
-推荐通过 DSH CLI 安装（需要 pnpm）：
+**方式一：一键脚本（推荐）**
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/scripts/install.sh)
+```
+
+脚本自动完成安装，包括处理 pnpm 的 allowBuilds 权限。
+
+**方式二：直接 DSH CLI**
 
 ```bash
 dsh plugin --profile web add github:mrtsels/dsh-file-attach
@@ -44,6 +52,14 @@ allowBuilds:
 ```
 
 然后重新运行 `add` 命令即可。
+
+**方式三：tarball 离线安装**
+
+从 [Releases](https://github.com/mrtsels/dsh-file-attach/releases) 下载 `.tgz` 文件：
+
+```bash
+dsh plugin --profile web add ./dsh-file-attach-0.2.0.tgz
+```
 
 ### 工作原理
 
@@ -156,7 +172,15 @@ Attached files are automatically injected into the prompt on the next model call
 
 ### Installation
 
-Install via the DSH CLI (requires pnpm):
+**One-line install (recommended)**
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/scripts/install.sh)
+```
+
+The script handles everything, including pnpm's allowBuilds permission.
+
+**Direct DSH CLI**
 
 ```bash
 dsh plugin --profile web add github:mrtsels/dsh-file-attach
@@ -170,6 +194,14 @@ allowBuilds:
 ```
 
 Then re-run the `add` command.
+
+**Offline tarball install**
+
+Download the `.tgz` from [Releases](https://github.com/mrtsels/dsh-file-attach/releases):
+
+```bash
+dsh plugin --profile web add ./dsh-file-attach-0.2.0.tgz
+```
 
 ### How It Works
 
