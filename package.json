@@ -1,0 +1,57 @@
+{
+  "name": "dsh-file-attach",
+  "description": "Cordis plugin: file/selection attachment injection into DSH prompt system",
+  "version": "0.2.0",
+  "type": "module",
+  "main": "lib/host/index.js",
+  "types": "lib/host/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/host/index.d.ts",
+      "default": "./lib/host/index.js"
+    },
+    "./client": {
+      "types": "./lib/client/index.d.ts",
+      "default": "./lib/client/index.js"
+    },
+    "./host": {
+      "types": "./lib/host/index.d.ts",
+      "default": "./lib/host/index.js"
+    },
+    "./src/*": "./src/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/host/index.js",
+    "lib/host/index.d.ts",
+    "lib/client/index.js",
+    "lib/client/index.d.ts",
+    "cordis.patch.yml"
+  ],
+  "keywords": ["dsh", "cordis", "plugin", "attachment"],
+  "license": "MIT",
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "workspace:^"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "workspace:^",
+    "typescript": "^5.8.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf lib"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-runtime"
+      ]
+    }
+  }
+}

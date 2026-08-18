@@ -1,0 +1,9 @@
+# dsh-file-attach: static Cordis plugin
+# Host 侧: agent/pre-step waterfall prompt injection + HTTP RPC
+# Client 侧: 由 dsh-client-modules 从 package.json dsh.client 声明自动发现
+
+- insert:
+    # Host plugin (Node.js process)
+    - id: dsh-file-attach
+      name: dsh-file-attach
+      inject: ['tools', 'webServer']
