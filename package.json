@@ -18,7 +18,6 @@
       "types": "./lib/host/index.d.ts",
       "default": "./lib/host/index.js"
     },
-    "./src/*": "./src/*",
     "./package.json": "./package.json"
   },
   "files": [

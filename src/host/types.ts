@@ -50,9 +50,4 @@ export interface AddItem {
   ranges?: readonly { startLine: number; endLine: number }[]
 }
 
-/** Selection suggestion payload. */
-export interface SelectionSuggestion {
-  path: string
-  ranges: readonly { startLine: number; endLine: number }[]
-  lineCount: number
-}
+
