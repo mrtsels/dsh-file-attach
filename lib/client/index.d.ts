@@ -14,7 +14,7 @@
 import type { Context } from '@deepseek-ai/cordis';
 /** Cordis plugin name. */
 export declare const name = "dsh-file-attach-client";
-/** Declare service dependencies — Cordis requires inject for ctx.* access. */
+/** Declare service dependencies. */
 export declare const inject: readonly ["slots"];
 export declare function apply(ctx: Context): void;
 //# sourceMappingURL=index.d.ts.map

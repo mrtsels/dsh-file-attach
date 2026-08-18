@@ -18,7 +18,7 @@ import type { Attachment, Suggestion, AddItem, AttachmentsResult, AddResult } fr
 /** Cordis plugin name. */
 export const name = 'dsh-file-attach-client'
 
-/** Declare service dependencies — Cordis requires inject for ctx.* access. */
+/** Declare service dependencies. */
 export const inject = ['slots'] as const
 
 // ---- host communication layer ----
@@ -251,15 +251,6 @@ function installPageApi(currentSessionRef: { id: string }): void {
 // ---- plugin apply ----
 
 export function apply(ctx: Context): void {
-  // === PROBE: confirm ctx.slots availability ===
-  console.log('[dsh-file-attach] apply called')
-  console.log('[dsh-file-attach] ctx type:', typeof ctx)
-  console.log('[dsh-file-attach] ctx keys:', Object.keys(ctx ?? {}))
-  console.log('[dsh-file-attach] ctx.slots:', (ctx as any).slots)
-  console.log('[dsh-file-attach] ctx.slots?.inject:', typeof (ctx as any).slots?.inject)
-  console.log('[dsh-file-attach] ctx.slots?.register:', typeof (ctx as any).slots?.register)
-  // === END PROBE ===
-
   const cslots = (ctx as any).slots
   if (!cslots || typeof cslots.inject !== 'function') {
     console.error('[dsh-file-attach] ctx.slots unavailable — aborting')
@@ -519,20 +510,15 @@ export function apply(ctx: Context): void {
     return React.createElement('div', { className: 'dshfa-strip' }, ...children)
   }
 
-  ;(globalThis as any).__dshfaDebug = { injectCalled: false, registerCalled: false }
-  cslots.inject('conversation.input.dock', () => {
-    ;(globalThis as any).__dshfaDebug.injectCalled = true
-    return cslots.register(
+  cslots.inject('conversation.input.dock', () =>
+    cslots.register(
       {
         name: 'conversation.input.dock',
         id: 'dsh-file-attach',
         order: 5,
-        inject: (sessionId: string) => {
-          ;(globalThis as any).__dshfaDebug.registerCalled = true
-          return { sessionId }
-        },
+        inject: (sessionId: string) => ({ sessionId }),
       },
       AttachStrip,
-    )
-  })
+    ),
+  )
 }
