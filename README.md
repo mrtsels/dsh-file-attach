@@ -18,6 +18,20 @@
 
 附着的文件在下次模型调用时自动注入提示词，模型可直接读取文件内容作为上下文。
 
+### UI 预览
+
+**已附着实心 chips** — 文件正式附着后显示，`×` 可移除：
+
+![Attached files](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/dsh-file-attach-attached-files.png)
+
+**虚线建议 chips** — IDE 正在浏览的文件/选区，点击任意处即可正式附着：
+
+![Suggested attachments](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/dsh-file-attach-suggested-attachments.png)
+
+**完整视图** — 建议区与附着区同一行，选区建议排在文件建议之前：
+
+![Full demo](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/demo-full.png)
+
 ### 工作原理
 
 插件采用 **双半架构**（Host + Client），通过 DSH 官方扩展点 `agent/pre-step` 实现 prompt 注入：
@@ -126,6 +140,20 @@ In DSH conversations, users can attach files or code snippets via:
 - **Programmatic attachment** — add files or code selections via the plugin API
 
 Attached files are automatically injected into the prompt on the next model call, giving the model direct access to file contents as context.
+
+### UI Preview
+
+**Attached files** — solid chips with `×` to remove:
+
+![Attached files](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/dsh-file-attach-attached-files.png)
+
+**Suggested attachments** — dashed chips; click anywhere to attach:
+
+![Suggested attachments](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/dsh-file-attach-suggested-attachments.png)
+
+**Full view** — suggestions and attachments in the same strip, selection suggestions before file suggestions:
+
+![Full demo](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/demo-full.png)
 
 ### How It Works
 
