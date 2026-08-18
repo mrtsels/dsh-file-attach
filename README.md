@@ -22,15 +22,11 @@
 
 **已附着实心 chips** — 文件正式附着后显示，`×` 可移除：
 
-![Attached files](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/dsh-file-attach-attached-files.png)
+![Attached files](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/attached-chips.png)
 
 **虚线建议 chips** — IDE 正在浏览的文件/选区，点击任意处即可正式附着：
 
-![Suggested attachments](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/dsh-file-attach-suggested-attachments.png)
-
-**完整视图** — 建议区与附着区同一行，选区建议排在文件建议之前：
-
-![Full demo](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/demo-full.png)
+![Suggested attachments](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/suggested-chips.png)
 
 ### 工作原理
 
@@ -145,15 +141,11 @@ Attached files are automatically injected into the prompt on the next model call
 
 **Attached files** — solid chips with `×` to remove:
 
-![Attached files](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/dsh-file-attach-attached-files.png)
+![Attached files](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/attached-chips.png)
 
 **Suggested attachments** — dashed chips; click anywhere to attach:
 
-![Suggested attachments](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/dsh-file-attach-suggested-attachments.png)
-
-**Full view** — suggestions and attachments in the same strip, selection suggestions before file suggestions:
-
-![Full demo](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/demo-full.png)
+![Suggested attachments](https://raw.githubusercontent.com/mrtsels/dsh-file-attach/main/assets/suggested-chips.png)
 
 ### How It Works
 
@@ -283,8 +275,7 @@ dsh-file-attach/
 │   └── client/         # Client half (browser)
 │       └── index.ts    # UI rendering + path detection
 ├── lib/                # Compiled output (ESM)
-├── scripts/
-│   └── build-client.mjs  # Client bundle wrapper
+├── assets/             # UI screenshots
 ├── cordis.patch.yml    # Static plugin registration
 ├── package.json
 └── tsconfig.json
